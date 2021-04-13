@@ -20,9 +20,14 @@
                 <p class="title is-3">$00.00</p>
                 <p class="subtitle is-5">SINCE LAST MONTH (USD)</p>
             </div>
+
             <div class="column is-4 is-multiline" id="price-value-change" class="ticker-column">
                 <p class="title is-3">0.00%</p>
                 <p class="subtitle is-5">SINCE LAST MONTH (%)</p>
+
+            <div class="column is-one-third is-multiline title is-3" id="price-percent-change" class="ticker-column">
+                VALUE CHANGE USD
+
             </div>
         </div>
         <div class="box" id="price-graph">
@@ -31,19 +36,25 @@
         </div>
     
         <!-- User input for number of 'coins' - needs to be numeric -->
-        <div id="calculations-container">
-            <input type="number" id="crypto-volume" placeholder="Enter number of coins you wish to value here">
-            <p id="not-a-number-warning">"Please enter a number!"</p> <!-- this should be display: none; in the css -->
+         <div id="calculations-container" class="parent">
+        <div>
+            <div class="input">
+                <input type="number" id="crypto-volume" placeholder="Enter number of coins you wish to value here">
+                <p id="not-a-number-warning">"Please enter a number!"</p> <!-- this should be display: none; in the css -->
+            </div>
+            
+            <div class="output">
             <select id="currency-selector">
                 <!-- dynamically populate currenct options -->
-            </select>
-            <label for="currency-selector">Choose a currency:</label>
+                </select>
+                <label for="currency-selector">Choose a currency:</label>
+            </div>
         </div>
 
          <!-- Output of total value of Bitcoin -->
-         <div id="total-value-display">
+         <div id="total-value-display" class="tot-value">
             <p>
-                <!-- display total value here using JS -->
+              total value display  <!-- display total value here using JS -->
             </p> 
         </div>
     </container>
@@ -60,5 +71,6 @@
             <button type="button" id="modalSubmitButton">Submit</button>
         </div>  
     </div>
+    <script src="assets/script.js"></script>
 </body>
 </html>
