@@ -46,10 +46,10 @@ body {
     height: 40px;
 }
 
-.tot-value {
-    border: solid black;
-}
-
 .bitbbl-select {
     width: 100%;
+}
+
+.bitbbl-box {
+    text-align: center;
 }
