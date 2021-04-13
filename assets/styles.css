@@ -56,16 +56,15 @@ body {
     margin: 10px;
 }
 
-.input {
-    border: solid black;
-    height: 40px;
-}
-
 .output {
     border: solid black;
     height: 40px;
 }
 
-.tot-value {
-    border: solid black;
+.bitbbl-select {
+    width: 100%;
+}
+
+.bitbbl-box {
+    text-align: center;
 }
