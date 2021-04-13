@@ -20,12 +20,13 @@ body {
 }
 
 #price-ticker-banner{
-    width: 90%;
+    width: auto;
     border: 2px solid grey;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 150px;
+    text-align: center;
 }
 
 .ticker-column{
