@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -27,19 +28,25 @@
         </div>
     
         <!-- User input for number of 'coins' - needs to be numeric -->
-        <div id="calculations-container">
-            <input type="number" id="crypto-volume" placeholder="Enter number of coins you wish to value here">
-            <p id="not-a-number-warning">"Please enter a number!"</p> <!-- this should be display: none; in the css -->
+         <div id="calculations-container" class="parent">
+        <div>
+            <div class="input">
+                <input type="number" id="crypto-volume" placeholder="Enter number of coins you wish to value here">
+                <p id="not-a-number-warning">"Please enter a number!"</p> <!-- this should be display: none; in the css -->
+            </div>
+            
+            <div class="output">
             <select id="currency-selector">
                 <!-- dynamically populate currenct options -->
-            </select>
-            <label for="currency-selector">Choose a currency:</label>
+                </select>
+                <label for="currency-selector">Choose a currency:</label>
+            </div>
         </div>
 
          <!-- Output of total value of Bitcoin -->
-         <div id="total-value-display">
+         <div id="total-value-display" class="tot-value">
             <p>
-                <!-- display total value here using JS -->
+              total value display  <!-- display total value here using JS -->
             </p> 
         </div>
     </container>
