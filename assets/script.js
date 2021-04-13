@@ -10,8 +10,6 @@ const timer = 20000  //20 seconds
 
 var cryptoIDS = "BTC"
 
-var currencyTo = "AUD"
-
 const currencyAPI = "5b18dc0b380cd7e1066a"
 const currencyUrl = `https://free.currconv.com/api/v7/convert?q=USD_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
 
@@ -56,7 +54,7 @@ function fetchCurrentPrice(){
     fetch(cryptoCurrentUrl)
     .then(response => response.json())
     .then(data => {
-        $currentPrice.innerHTML = "$" + round(data.bpi.USD.rate_float,2) + "USD";
+        $currentPrice.innerHTML = "$" + round(data.bpi.USD.rate_float,2) + " USD";
     })
 }
 
@@ -66,21 +64,24 @@ function fetchHistoricalPrice(){
     .then(data => {
         requestData = data;
         historicalPrices = Object.values(requestData.bpi)
-        $priceValueChange.innerHTML = "$" + round(valChangeCalc(historicalPrices),2) + "USD"
+        $priceValueChange.innerHTML = "$" + round(valChangeCalc(historicalPrices),2) + " USD"
         $pricePercentChange.innerHTML = round(percentChangeCalc(historicalPrices),2)*100 + "%"
     })
 }
 
+var responseData = ""
+var currencyTo = "AUD"
+
 function fetchCurrency (){
-    var currencyTo = $currencySelector.value
+   // var currencyTo = $currencySelector.value
     fetch(currencyUrl)
     .then(response => response.json())
     .then(data => {
         responseData = data;
-        var exchangeRate = XXX //get exchange rate from the call
-        var USDval = $currentPrice.innerHTML  //may need to change to a number
-        var totVal = $cryptoVolumeSelect * USDval * exchangeRate
-        $totalValue.innerHTML = "$" + round(totVal,2) + currencyTo //enter value here
+        var exchangeRate = responseData.USD_AUD //get exchange rate from the call
+        var USDval = parseInt($currentPrice.innerHTML.split(" ")[0].split("$")[1])  //may need to change to a number
+        var totVal = parseInt($cryptoVolumeSelect.value) * USDval * exchangeRate
+        $totalValue.innerHTML = "$" + round(totVal,2) + currencyTo //enter value here */
     })
 }
 
