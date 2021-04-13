@@ -5,20 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <!-- left hand side elements -->
-    <container id="crypto-price-and-currency-selector">
-        <select id="crypto-selector">
-            <!-- Add options dynamically using JS -->
-        </select>
-        <label for="crypto-selector">Choose a crypto-'currency':</label>
-    
+    <container id="main">
+        <div id="price-ticker-banner">
+            <div id="current-price" class="ticker-column">
+                PRICE
+            </div>
+            <div id="price-value-change" class="ticker-column">
+                VALUE CHANGE USD
+            </div>
+            <div id="price-value-change" class="ticker-column">
+                VALUE CHANGE USD
+            </div>
+        </div>
         <div id="price-graph">
             <!-- Embed price graph from nomics api call here -->
-            <p id="price">
-                <!-- overlay price in the upper center of the price graph -->
-            </p>
+            PRICE GRAPH
         </div>
     
         <!-- User input for number of 'coins' - needs to be numeric -->
@@ -30,27 +35,15 @@
             </select>
             <label for="currency-selector">Choose a currency:</label>
         </div>
-    </container>
-    
-    <!-- right hand side elements -->
-    <container id="crypto-comparisons-and-total-value">
-        <div id="dynamic-table">
-            <!-- use setInterval to create a dynamic table from user-chosen valuation metric (below) -->
-        </div>
 
-        <select id="valuation-options">
-            <!-- dynamically add options here for user to select what type of valuation to use -->
-        </select>
-        <label for="valuation-options">Choose a valueation metric:</label>
-    
-        <!-- User input for number of 'coins' - needs to be numeric -->
-        <div id="total-value-display">
+         <!-- Output of total value of Bitcoin -->
+         <div id="total-value-display">
             <p>
                 <!-- display total value here using JS -->
             </p> 
         </div>
     </container>
-
+    
     <!-- modal must popup on window load (JS operation) -->
     <div id="modal">
         <!-- Modal content -->
