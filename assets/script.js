@@ -4,20 +4,16 @@ $pricePercentChange = document.getElementById("price-percent-change")
 $priceGraph = document.getElementById("price-graph")
 $cryptoVolumeSelect = document.getElementById("crypto-volume")
 $currencySelector = document.getElementById("currency-selector")
+$totalValue = document.getElementById("total-value-display")
 
 const timer = 20000  //20 seconds
 
-var currentPriceFetch = ""
-var historicalPrices = ""
-var conversionFactor = 0
 var cryptoIDS = "BTC"
-var requestData = ""
 
 var currencyTo = "AUD"
-var currencyFrom = "USD"
 
 const currencyAPI = "5b18dc0b380cd7e1066a"
-const currencyUrl = `https://free.currconv.com/api/v7/convert?q=${currencyFrom}_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
+const currencyUrl = `https://free.currconv.com/api/v7/convert?q=USD_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
 
 const cryptoHistoricalUrl = "https://api.coindesk.com/v1/bpi/historical/close.json"
 const cryptoCurrentUrl = "https://api.coindesk.com/v1/bpi/currentprice/USD.json"
@@ -33,36 +29,34 @@ function init(){
     //to do:
     // render line graph
 
-    setInterval(function(){ 
-        fetchCurrentPrice(); 
-    }, timer);    
+    setInterval(fetchCurrentPrice, timer);    
 }
 
-/* setInterval(function(){ 
-    fetchCurrentPrice();
+function valChangeCalc(array){
+    var valChange = array[array.length-1] - array[0]
+    return valChange
+}
 
-}, timer); */
+function percentChangeCalc(array){
+    var percentChange = array[array.length-1] - array[0]
+    percentChange = percentChange/array[0]
+    return percentChange
+}
+
+//rounding function
+const round = (number, decimalPlaces) =>
+    Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces) 
 
 function renderCurrentPrice(){
     $currentPrice.innerHTML = price
     //this comes from a setInterval that calls the API every 20 seconds and sets the 'price' variable
 }
 
-function renderPriceChange(){
-    var historical = fetchHistoricalPrice()
-    var historicalValues = object.values(historical.bpi)
-    var historicalKeys = object.keys(historical.bpi)
-
-    //call valChangeCalc function and render to dom element
-    $priceValueChange.innerHTML = valChangeCalc(historicalValues)
-    $pricePercentChange.innerHTML = percentChangeCalc(historicalValues)
-}
-
 function fetchCurrentPrice(){
     fetch(cryptoCurrentUrl)
     .then(response => response.json())
     .then(data => {
-        $currentPrice.innerHTML = data.bpi.USD.rate_float;
+        $currentPrice.innerHTML = "$" + round(data.bpi.USD.rate_float,2) + "USD";
     })
 }
 
@@ -72,16 +66,21 @@ function fetchHistoricalPrice(){
     .then(data => {
         requestData = data;
         historicalPrices = Object.values(requestData.bpi)
-        $priceValueChange.innerHTML = valChangeCalc(historicalPrices[0])
-        $pricePercentChange.innerHTML = percentChangeCalc(historicalPrices)
+        $priceValueChange.innerHTML = "$" + round(valChangeCalc(historicalPrices),2) + "USD"
+        $pricePercentChange.innerHTML = round(percentChangeCalc(historicalPrices),2)*100 + "%"
     })
 }
 
 function fetchCurrency (){
+    var currencyTo = $currencySelector.value
     fetch(currencyUrl)
     .then(response => response.json())
     .then(data => {
-        conversionFactor = data;
+        responseData = data;
+        var exchangeRate = XXX //get exchange rate from the call
+        var USDval = $currentPrice.innerHTML  //may need to change to a number
+        var totVal = $cryptoVolumeSelect * USDval * exchangeRate
+        $totalValue.innerHTML = "$" + round(totVal,2) + currencyTo //enter value here
     })
 }
 
