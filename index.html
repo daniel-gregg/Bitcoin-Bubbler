@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,11 +11,13 @@
     <script src="https://kit.fontawesome.com/8fc91875bd.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
+    <div class="bgd-image"></div>
     <!-- left hand side elements -->
-    <div class="columns" id="main">
-        <div id="price-ticker-banner">
-            <div class="column is-4 is-multiline"  class="ticker-column">
+    <main class="columns main-app" id="main">
+        <div id="price-ticker-banner" class="ticker-banner">
+            <div class="column is-4 is-multiline" class="ticker-column">
                 <p class="subtitle is-5">Bitcoin Price</p>
                 <p class="title is-4" id="current-price">$000.00</p>
             </div>
@@ -23,43 +26,43 @@
                 <p class="title is-4" id="price-value-change">$00.00</p>
             </div>
 
-                <div class="column is-4 is-multiline" class="ticker-column">
+            <div class="column is-4 is-multiline" class="ticker-column">
                 <p class="subtitle is-5">% monthly change</p>
                 <p class="title is-4" id="price-percent-change">0.00%</p>
-                 </div>
             </div>
-        
-            <div class="box graph-box" id="price-graph">
+        </div>
+
+        <div class="box graph-box" id="price-graph">
             <!-- Embed price graph from nomics api call here -->
 
             <canvas id="chart"></canvas>
         </div>
-    
+
         <!-- User input for number of 'coins' - needs to be numeric -->
         <div id="calculations-container" class="parent">
             <div class="field">
                 <input type="number" id="crypto-volume" placeholder="Enter number of coins" class="input">
             </div>
-            
+
             <div class="field control has-icons-left">
                 <div class="select bitbbl-select">
                     <select id="currency-selector" class="bitbbl-select">
-                    <!-- dynamically populate currency options -->
-                    <option selected>Choose a currency:</option>
-                    <option>AUD</option>
-                    <option>CAD</option>
-                    <option>COP</option>
-                    <option>CNY</option>
-                    <option>GBP</option>
-                    <option>JYP</option>
-                    <option>NZP</option>
-                    <option>USD</option>
-                    <option>VND</option>
-                    <option>ZAR</option>
-                   </select>
+                        <!-- dynamically populate currency options -->
+                        <option selected>Choose a currency:</option>
+                        <option>AUD</option>
+                        <option>CAD</option>
+                        <option>COP</option>
+                        <option>CNY</option>
+                        <option>GBP</option>
+                        <option>JYP</option>
+                        <option>NZP</option>
+                        <option>USD</option>
+                        <option>VND</option>
+                        <option>ZAR</option>
+                    </select>
                 </div>
                 <div class="icon is-small is-left">
-                    <i class="fas fa-coins"></i>    
+                    <i class="fas fa-coins"></i>
                 </div>
             </div>
             <div>
@@ -70,30 +73,33 @@
         </div>
         <!-- Output of total value of Bitcoin -->
         <div class="box final-calc">
-            <p id="total-value-display">&nbsp;</p> 
+            <p id="total-value-display">&nbsp;</p>
         </div>
 
-    <!-- modal must popup on window load (JS operation) -->
-    <div class="modal" id="modal">
-        <div class="modal-background">
+        <!-- modal must popup on window load (JS operation) -->
+        <div class="modal" id="modal">
+            <div class="modal-background">
+            </div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Before entering:</p>
+                </header>
+                <section class="modal-card-body modal-p">
+                    Please click the box below to acknowledge that you are aware that crypto-currencies are effectively
+                    pyramid schemes and that associated markets are bubble markets (i.e. characterised by ‘irrational
+                    exuberance’ – see Robert Schiller)
+                </section>
+                <footer class="modal-card-foot" m>
+                    <p>I have read and understood above:</p>
+                    <input type="checkbox" id="enter-check" class="bitbbl-checkbox">
+                    <button class="button is-danger" id="modal-enter" disabled="disabled">Enter</button>
+                </footer>
+            </div>
         </div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Before entering:</p>
-          </header>
-          <section class="modal-card-body modal-p">
-            Please click the box below to acknowledge that you are aware that crypto-currencies are effectively pyramid schemes and that associated markets are bubble markets (i.e. characterised by ‘irrational exuberance’ – see Robert Schiller)
-          </section>
-          <footer class="modal-card-foot" m>
-              <p>I have read and understood above:</p>
-            <input type="checkbox" id="enter-check"class="bitbbl-checkbox"> 
-            <button class="button is-danger" id="modal-enter" disabled="disabled">Enter</button>
-          </footer>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
-    <script src="assets/script.js"></script>
+    </main>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+        <script src="assets/script.js"></script>
 </body>
-</html>
 
+</html>
