@@ -14,8 +14,9 @@ body {
     display: none;
 }
 
-#modal {
-    display: none;
+.modal {
+    display: block;
+   
 }
 
 #main {
@@ -93,4 +94,9 @@ body {
 .button:hover {
     background-color: #deba54;
     color: white;
+}
+
+.bitbbl-checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
 }

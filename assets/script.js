@@ -1,13 +1,19 @@
-$currentPrice = document.getElementById("current-price")
-$priceValueChange = document.getElementById("price-value-change")
-$pricePercentChange = document.getElementById("price-percent-change")
-$priceGraph = document.getElementById("price-graph")
-$cryptoVolumeSelect = document.getElementById("crypto-volume")
-$currencySelector = document.getElementById("currency-selector")
-$totalValue = document.getElementById("total-value-display")
-$submitExchangeRateRequest = document.getElementById("getExchangeRate")
+const $currentPrice = document.getElementById("current-price")
+const $priceValueChange = document.getElementById("price-value-change")
+const $pricePercentChange = document.getElementById("price-percent-change")
+const $priceGraph = document.getElementById("price-graph")
+const $cryptoVolumeSelect = document.getElementById("crypto-volume")
+const $currencySelector = document.getElementById("currency-selector")
+const $totalValue = document.getElementById("total-value-display")
+const $submitExchangeRateRequest = document.getElementById("getExchangeRate")
+const $enter = document.querySelector("#modal-enter")
+const $modal = document.querySelector("#modal")
+const $checkbox = document.querySelector("#enter-check")
+const $modalEnter = document.querySelector('#modal-enter')
 
 $submitExchangeRateRequest.addEventListener("click",fetchCurrency)
+$enter.addEventListener("click", clearModal);
+
 
 const timer = 20000  //20 seconds
 var cryptoIDS = "BTC"
@@ -17,11 +23,19 @@ const currencyAPI = "5b18dc0b380cd7e1066a"
 const cryptoHistoricalUrl = "https://api.coindesk.com/v1/bpi/historical/close.json"
 const cryptoCurrentUrl = "https://api.coindesk.com/v1/bpi/currentprice/USD.json"
 
+$checkbox.addEventListener("change", function (event) {
+    $modalEnter.disabled = !event.target.checked;
+})
+
+function clearModal(){
+    document.querySelector(".modal").setAttribute("style", "display: none")
+}
+
 //For later!!
 //object.entries(OBJ) gets the [key:value] pairings as an array (leng = 30) of arrays (len = 2)
 //object.values(OBJ) gets the values
-//object.keys(OBJ) gets the keys
-
+//object.keys(OBJ) gets the key
+//enter.setAttribute("style", "display:none") 
 function init(){
     fetchCurrentPrice();
     fetchHistoricalPrice();
@@ -88,3 +102,4 @@ function fetchCurrency (){
 
 //call functions and start timer
 init()
+
