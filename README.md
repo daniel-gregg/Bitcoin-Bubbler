@@ -15,5 +15,5 @@ As our first project we are creating a crypto-currency app, which will dynamical
 - SO that I can see the total wealth I have accumulated 
 
 <b>APIs Used</b>
- - Nomics
- -
+ - CoinDesk
+ - Currconv
