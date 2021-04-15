@@ -117,7 +117,7 @@ function makeChart(labels, data){
                 datasets: [{
                     label: 'Buttcoin historical prices (31 days)',
                     data: data,
-                    fill: false,
+                    fill: true,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.1
                   }]
