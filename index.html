@@ -12,17 +12,16 @@
 </head>
 <body>
     <!-- left hand side elements -->
-    
-        <div class="columns" id="main">
-            <div id="price-ticker-banner">
-                <div class="column is-4 is-multiline"  class="ticker-column">
-                    <p class="subtitle is-5">Buttcoin Price</p>
-                    <p class="title is-4" id="current-price">$000.00</p>
-                </div>
-                <div class="column is-4 is-multiline" class="ticker-column">
-                    <p class="subtitle is-5">$ monthly change</p>
-                    <p class="title is-4" id="price-value-change">$00.00</p>
-                </div>
+    <div class="columns" id="main">
+        <div id="price-ticker-banner">
+            <div class="column is-4 is-multiline"  class="ticker-column">
+                <p class="subtitle is-5">Bitcoin Price</p>
+                <p class="title is-4" id="current-price">$000.00</p>
+            </div>
+            <div class="column is-4 is-multiline" class="ticker-column">
+                <p class="subtitle is-5">$ monthly change</p>
+                <p class="title is-4" id="price-value-change">$00.00</p>
+            </div>
 
                 <div class="column is-4 is-multiline" class="ticker-column">
                 <p class="subtitle is-5">% monthly change</p>
@@ -32,6 +31,7 @@
         
             <div class="box graph-box" id="price-graph">
             <!-- Embed price graph from nomics api call here -->
+
             <canvas id="chart"></canvas>
         </div>
     
@@ -44,7 +44,7 @@
             <div class="field control has-icons-left">
                 <div class="select bitbbl-select">
                     <select id="currency-selector" class="bitbbl-select">
-                    <!-- dynamically populate currenct options -->
+                    <!-- dynamically populate currency options -->
                     <option selected>Choose a currency:</option>
                     <option>AUD</option>
                     <option>CAD</option>
