@@ -18,7 +18,6 @@ body {
     display: none;
 }
 
-
 #main {
     display: flex;
     flex-direction: column;
@@ -77,4 +76,8 @@ body {
 
 .bitbbl-box {
     text-align: center;
+}
+
+.control.has-icons-left .icon, .control.has-icons-right .icon {
+    color: #deba54;
 }
