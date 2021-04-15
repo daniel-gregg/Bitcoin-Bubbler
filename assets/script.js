@@ -63,10 +63,12 @@ function fetchHistoricalPrice(){
     fetch(cryptoHistoricalUrl)
     .then(response => response.json())
     .then(data => {
-        requestData = data;
-        historicalPrices = Object.values(requestData.bpi)
-        $priceValueChange.innerHTML = "$" + round(valChangeCalc(historicalPrices),2) + " USD"
-        $pricePercentChange.innerHTML = round(percentChangeCalc(historicalPrices),2)*100 + "%"
+        const requestData = data;
+        const historicalPricesValues = Object.values(requestData.bpi)
+        const historicalPricesKeys = Object.keys(requestData.bpi)
+        $priceValueChange.innerHTML = "$" + round(valChangeCalc(historicalPricesValues),2) + " USD"
+        $pricePercentChange.innerHTML = round(percentChangeCalc(historicalPricesValues),2)*100 + "%"
+        renderChart(historicalPricesValues, historicalPricesKeys);
     })
 }
 
@@ -84,6 +86,33 @@ function fetchCurrency (){
         var totVal = parseInt($cryptoVolumeSelect.value) * USDval * exchangeRate
         $totalValue.innerHTML = "$" + round(totVal,2) + " " + currencyTo //enter value here
     })
+}
+
+function renderChart(values, keys){
+    const labels = keys.map( (key) => dayjs(key).format("ddd MMM YYYY") )
+    makeChart(labels, values)
+}
+
+function makeChart(labels, data){  
+    window.chart = new Chart(
+        document.getElementById('chart'),
+        {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Buttcoin historical prices (31 days)',
+                    data: data,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                  }]
+            },
+            options: {
+                maintainAspectRatio: false,
+            }
+        }
+    );
 }
 
 //call functions and start timer
