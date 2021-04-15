@@ -20,8 +20,8 @@ const cryptoCurrentUrl = "https://api.coindesk.com/v1/bpi/currentprice/USD.json"
 //For later!!
 //object.entries(OBJ) gets the [key:value] pairings as an array (leng = 30) of arrays (len = 2)
 //object.values(OBJ) gets the values
-//object.keys(OBJ) gets the keys
-
+//object.keys(OBJ) gets the key
+//enter.setAttribute("style", "display:none") 
 function init(){
     fetchCurrentPrice();
     fetchHistoricalPrice();
@@ -88,3 +88,4 @@ function fetchCurrency (){
 
 //call functions and start timer
 init()
+

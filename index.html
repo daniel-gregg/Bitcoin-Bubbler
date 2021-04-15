@@ -78,17 +78,23 @@
     </container>
     
     <!-- modal must popup on window load (JS operation) -->
-    <div id="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <p>
-                Before entering:<br><br>
-                Please click the box below to acknowledge that you are aware that crypto-currencies are effectively pyramid schemes and that associated markets are bubble markets (i.e. characterised by ‘irrational exuberance’ – see Robert Schiller)
-            </p>
-            <input type="checkbox">
-            <button type="button" id="modalSubmitButton">Submit</button>
-        </div>  
-    </div>
-    <script src="assets/script.js"></script>
+    <div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Before entering:</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            Please click the box below to acknowledge that you are aware that crypto-currencies are effectively pyramid schemes and that associated markets are bubble markets (i.e. characterised by ‘irrational exuberance’ – see Robert Schiller)
+          </section>
+          <footer class="modal-card-foot">
+            <input type="checkbox" class="bitbbl-checkbox"> 
+            <button class="button is-danger" id="modal-enter">Enter</button>
+          </footer>
+        </div>
+      </div>
+     <script src="assets/script.js"></script>
 </body>
 </html>
+

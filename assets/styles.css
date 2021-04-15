@@ -6,8 +6,9 @@ body {
     display: none;
 }
 
-#modal {
-    display: none;
+.modal {
+    display: block;
+   
 }
 
 
@@ -67,4 +68,8 @@ body {
 
 .bitbbl-box {
     text-align: center;
+}
+
+.bitbbl-checkbox {
+    margin-right: 10px;
 }
