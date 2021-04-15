@@ -31,11 +31,6 @@ function clearModal(){
     document.querySelector(".modal").setAttribute("style", "display: none")
 }
 
-//For later!!
-//object.entries(OBJ) gets the [key:value] pairings as an array (leng = 30) of arrays (len = 2)
-//object.values(OBJ) gets the values
-//object.keys(OBJ) gets the key
-//enter.setAttribute("style", "display:none") 
 function init(){
     fetchCurrentPrice();
     fetchHistoricalPrice();
@@ -95,10 +90,10 @@ function fetchCurrency (){
     .then(response => response.json())
     .then(data => {
         responseData = data;
-        var exchangeRate = responseData.USD_AUD //get exchange rate from the call
+        var exchangeRate = responseData[`USD_${currencyTo}`] //get exchange rate from the call
         var USDval = parseInt($currentPrice.innerHTML.split(" ")[0].split("$")[1])  //may need to change to a number
         var totVal = parseInt($cryptoVolumeSelect.value) * USDval * exchangeRate
-        $totalValue.innerHTML = "$" + round(totVal,2) + " " + currencyTo //enter value here
+        $totalValue.innerHTML = round(totVal,2) + " " + currencyTo //enter value here
     })
 }
 
