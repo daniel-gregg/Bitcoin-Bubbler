@@ -1,5 +1,11 @@
 body {
     margin: 10px;
+    background-image: url('https://media.giphy.com/media/4KFvuA2LmYYVv46CNN/giphy.gif');
+    background-size: cover;
+    height: 100vh;
+    padding:0;
+    margin:0;
+    }
 }
 
 #not-a-number-warning {
