@@ -5,13 +5,14 @@ $priceGraph = document.getElementById("price-graph")
 $cryptoVolumeSelect = document.getElementById("crypto-volume")
 $currencySelector = document.getElementById("currency-selector")
 $totalValue = document.getElementById("total-value-display")
+$submitExchangeRateRequest = document.getElementById("getExchangeRate")
+
+$submitExchangeRateRequest.addEventListener("click",fetchCurrency)
 
 const timer = 20000  //20 seconds
-
 var cryptoIDS = "BTC"
 
 const currencyAPI = "5b18dc0b380cd7e1066a"
-const currencyUrl = `https://free.currconv.com/api/v7/convert?q=USD_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
 
 const cryptoHistoricalUrl = "https://api.coindesk.com/v1/bpi/historical/close.json"
 const cryptoCurrentUrl = "https://api.coindesk.com/v1/bpi/currentprice/USD.json"
@@ -73,6 +74,7 @@ function fetchHistoricalPrice(){
 
 function fetchCurrency (){
     var currencyTo = $currencySelector.value
+    var currencyUrl = `https://free.currconv.com/api/v7/convert?q=USD_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
     fetch(currencyUrl)
     .then(response => response.json())
     .then(data => {
