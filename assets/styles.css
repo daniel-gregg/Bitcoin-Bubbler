@@ -2,13 +2,10 @@ body {
     margin: 10px;
     background-image: url('https://media.giphy.com/media/4KFvuA2LmYYVv46CNN/giphy.gif');
     background-size: cover;
+    height: 100vh;
     padding:0;
     margin:0;
-    }
-}
-
-#not-a-number-warning {
-    display: none;
+    
 }
 
 .modal {
@@ -24,16 +21,15 @@ body {
     margin: 0 auto;
 }
 
-#price-ticker-banner{
-    width: 100%;
+#price-ticker-banner {
+    width: auto;
     margin: auto;
-    padding: 15px;
     margin-top: 15px;
     display: flex;
     background-color: #deba54;
     border-radius: 5px;
     flex-direction: row;
-    height: auto;
+    height: 200px;
     text-align: center;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
@@ -52,7 +48,7 @@ body {
     height: 300px;
 }
 
-.ticker-column{
+.ticker-column {
     background-color: aquamarine;
     height: 50px;
     border-radius: 5px;
@@ -65,6 +61,7 @@ body {
     grid-template-columns: auto auto auto;
     grid-template-rows: 50px;
     margin: 0 auto;
+}
     
 .output {
     border: solid black;
@@ -105,8 +102,8 @@ body {
     height: 250px;
 }
 
-.calc-output {
-    max-width: 150px;
+.final-calc {
+    width: 150px;
     margin: 0 auto;
     background-color: lightgrey;
     text-align: center;
