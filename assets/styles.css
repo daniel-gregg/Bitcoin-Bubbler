@@ -9,7 +9,7 @@ body {
 .bgd-image {
     background-image: url('https://media.giphy.com/media/4KFvuA2LmYYVv46CNN/giphy.gif');
     background-size: cover;
-    opacity: 0.3    ;
+    opacity: 0.1    ;
     position: fixed;
     top: 0;
     left: 0;
