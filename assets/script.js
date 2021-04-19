@@ -91,10 +91,17 @@ function fetchCurrency (){
     .then(data => {
         responseData = data;
         var exchangeRate = responseData[`USD_${currencyTo}`] //get exchange rate from the call
-        var USDval = parseInt($currentPrice.innerHTML.split(" ")[0].split("$")[1])  //may need to change to a number
-        var totVal = parseInt($cryptoVolumeSelect.value) * USDval * exchangeRate
-        $totalValue.innerHTML = round(totVal,2) + " " + currencyTo //enter value here
+        var USDval = Math.round($currentPrice.innerHTML.split(" ")[0].split("$")[1]*100)/100  //may need to change to a number
+        var totVal = Math.round($cryptoVolumeSelect.value*100)/100 * USDval * exchangeRate
+        totVal = round(totVal,0)
+        $totalValue.innerHTML = formatCurrency(totVal,currencyTo) //enter value here
     })
+}
+
+function formatCurrency(val,currencyString){
+    var number = round(valChangeCalc(val),2)
+    formattedNumber = Intl.NumberFormat('en-US',{style:"currency", currency: currencyString}).format(val)
+    return formattedNumber
 }
 
 function renderChart(values, keys){
