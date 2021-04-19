@@ -1,6 +1,6 @@
 body {
     margin: 10px;
-    background-color: #000;
+    background-color: rgb(90, 90, 90);
     height: 100vh;
     padding:0;
     margin:0;
@@ -9,7 +9,7 @@ body {
 .bgd-image {
     background-image: url('https://media.giphy.com/media/4KFvuA2LmYYVv46CNN/giphy.gif');
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.3    ;
     position: fixed;
     top: 0;
     left: 0;
