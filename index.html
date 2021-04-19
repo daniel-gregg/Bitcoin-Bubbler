@@ -41,7 +41,7 @@
         <!-- User input for number of 'coins' - needs to be numeric -->
         <div id="calculations-container" class="parent">
             <div class="field">
-                <input type="number" id="crypto-volume" placeholder="Enter number of coins" class="input" min=0>
+                <input type="number" step="0.1" id="crypto-volume" placeholder="Enter number of coins" class="input" min=0>
               <h1>Enter the number of coins you would like to convert above.</h1>
             </div>
 
@@ -68,7 +68,9 @@
             </div>
             <div>
                 <!-- Submit Button -->
-                <input class="button" type="submit" value="Calculate" id="getExchangeRate">
+                <form action="submit" id="getExchangeRate">
+                <input class="button" type="submit" value="Calculate">
+                </form>
             </div>
 
         </div>
