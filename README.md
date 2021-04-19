@@ -34,7 +34,7 @@ To use the app, simply input into the "amount of coins" box the amount of bitcoi
 
 <b>Credits</b>
 - Peter Bruckner
-- Daniel Boone 
+- Daniel Gregg 
 - Georgia Hunt
 - Steven Ng
 
