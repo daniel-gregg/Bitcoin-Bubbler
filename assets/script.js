@@ -29,6 +29,10 @@ $checkbox.addEventListener("change", function (event) {
 
 function clearModal(){
     document.querySelector(".modal").setAttribute("style", "display: none")
+
+    //save the agreement value (true) to local storage to remove future popups for same user
+    var agreeCheck = true
+    localStorage.setItem("agree",JSON.stringify(agreeCheck))
 }
 
 function init(){
@@ -37,7 +41,23 @@ function init(){
     //to do:
     // render line graph
 
-    setInterval(fetchCurrentPrice, timer);    
+    setInterval(fetchCurrentPrice, timer); 
+    checkLocal()  //check local storage for checked box already 
+}
+
+function checkLocal(){
+    if(localStorage.getItem("agree")==null){
+        agreeCheck=false
+    } else {
+        agreeCheck = JSON.parse(localStorage.getItem("agree"))
+    }
+    toggleModal(agreeCheck) // toggle modal off if already checked
+}
+
+function toggleModal(bool){
+    if(bool==true){
+        $modal.style.display = "none"
+    }
 }
 
 function valChangeCalc(array){
@@ -91,10 +111,17 @@ function fetchCurrency (){
     .then(data => {
         responseData = data;
         var exchangeRate = responseData[`USD_${currencyTo}`] //get exchange rate from the call
-        var USDval = parseInt($currentPrice.innerHTML.split(" ")[0].split("$")[1])  //may need to change to a number
-        var totVal = parseInt($cryptoVolumeSelect.value) * USDval * exchangeRate
-        $totalValue.innerHTML = round(totVal,2) + " " + currencyTo //enter value here
+        var USDval = Math.round($currentPrice.innerHTML.split(" ")[0].split("$")[1]*100)/100  //may need to change to a number
+        var totVal = Math.round($cryptoVolumeSelect.value*100)/100 * USDval * exchangeRate
+        totVal = round(totVal,0)
+        $totalValue.innerHTML = formatCurrency(totVal,currencyTo) //enter value here
     })
+}
+
+function formatCurrency(val,currencyString){
+    var number = round(valChangeCalc(val),2)
+    formattedNumber = Intl.NumberFormat('en-US',{style:"currency", currency: currencyString}).format(val)
+    return formattedNumber
 }
 
 function renderChart(values, keys){
@@ -110,7 +137,7 @@ function makeChart(labels, data){
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Buttcoin historical prices (31 days)',
+                    label: 'Bitcoin historical prices (31 days)',
                     data: data,
                     fill: true,
                     borderColor: 'rgb(75, 192, 192)',
