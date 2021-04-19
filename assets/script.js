@@ -29,6 +29,10 @@ $checkbox.addEventListener("change", function (event) {
 
 function clearModal(){
     document.querySelector(".modal").setAttribute("style", "display: none")
+
+    //save the agreement value (true) to local storage to remove future popups for same user
+    var agreeCheck = true
+    localStorage.setItem("agree",JSON.stringify(agreeCheck))
 }
 
 function init(){
@@ -37,7 +41,23 @@ function init(){
     //to do:
     // render line graph
 
-    setInterval(fetchCurrentPrice, timer);    
+    setInterval(fetchCurrentPrice, timer); 
+    checkLocal()  //check local storage for checked box already 
+}
+
+function checkLocal(){
+    if(localStorage.getItem("agree")==null){
+        agreeCheck=false
+    } else {
+        agreeCheck = JSON.parse(localStorage.getItem("agree"))
+    }
+    toggleModal(agreeCheck) // toggle modal off if already checked
+}
+
+function toggleModal(bool){
+    if(bool==true){
+        $modal.style.display = "none"
+    }
 }
 
 function valChangeCalc(array){
@@ -110,7 +130,7 @@ function makeChart(labels, data){
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Buttcoin historical prices (31 days)',
+                    label: 'Bitcoin historical prices (31 days)',
                     data: data,
                     fill: true,
                     borderColor: 'rgb(75, 192, 192)',
