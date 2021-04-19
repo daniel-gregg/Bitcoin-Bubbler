@@ -15,6 +15,7 @@ As our first project we are creating a crypto-currency app, which dynamically ge
 - SO that I can see the total wealth I have accumulated 
 
 <h3>APIs Used</h3>
+
  <b>- CoinDesk</b>
  CoinDesk provides a simple API to make Bitcoin Price Index data, and it is free to use. This bitcoins exchanges are only included in the US dollar, EUR, and GBP calculation in Json value. BPI from this API is updated per minute, therefore we are able to pull current value and past 60 days value from it.
  
@@ -22,7 +23,8 @@ As our first project we are creating a crypto-currency app, which dynamically ge
  Free Currencyconverter API is also a free API provided for developers to convert currency as they needed. It let us pull 100 requests per hour, and currency values are updated every 60 minutes. In this project we have fetch value for AUD, CAD, COP, CYN, GBP, JYP, NZP, USD, VND, and ZAR.
 
 
-<b>Fetch</b>
+<h3>Fetch</h3>
+
 In this project, we fetch Json data from CoinDesk for the current price, then last month price, comparing them and show what is the monthly change in percentage. We then fetch the past 31 days value to put into the line chart to show the trend. At the end we allow user to enter the numbers of the coin they want to check, use that data to do calculation with the currency exchange value we fetched, and calculate amount of it's worth to the user.
 
 
