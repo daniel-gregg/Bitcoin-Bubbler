@@ -54,5 +54,5 @@ The original wireframes were used to guide HTML structure and styling, in additi
 - Steven Ng
 
 <b>Links:</b>
-
+Link to the App https://brucksta.github.io/Bitcoin-Bubbler/
 
