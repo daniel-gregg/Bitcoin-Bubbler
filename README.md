@@ -35,7 +35,17 @@ To use the app, simply input into the "amount of coins" box the amount of bitcoi
 ![image](https://user-images.githubusercontent.com/78789156/115223651-32b0d180-a14b-11eb-81e4-82f4eca68296.png)
 
 
+<h3>Original wireframe</h3>
 
+The original wireframes were used to guide HTML structure and styling, in addition to Javascript functionality for the modal. 
+
+<h4> Wireframe with popup modal </h4>
+
+![wireframe with popup modal](/assets/mockup-with-modal.png?raw=true "Wireframe mockup with popup modal")
+
+<h4> Wireframe mainpage (after popup has been popped-off) </h4>
+
+![wireframe without popup modal](/assets/mockup-without-modal.png?raw=true "Wireframe mockup without popup modal")
 
 <b>Credits</b>
 - Peter Bruckner
