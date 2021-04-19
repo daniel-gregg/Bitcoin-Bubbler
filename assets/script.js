@@ -11,7 +11,7 @@ const $modal = document.querySelector("#modal")
 const $checkbox = document.querySelector("#enter-check")
 const $modalEnter = document.querySelector('#modal-enter')
 
-$submitExchangeRateRequest.addEventListener("click",fetchCurrency)
+$submitExchangeRateRequest.addEventListener("submit", fetchCurrency)
 $enter.addEventListener("click", clearModal);
 
 
@@ -103,7 +103,8 @@ function fetchHistoricalPrice(){
 
 
 
-function fetchCurrency (){
+function fetchCurrency (event){
+    event.preventDefault()
     var currencyTo = $currencySelector.value
     var currencyUrl = `https://free.currconv.com/api/v7/convert?q=USD_${currencyTo}&compact=ultra&apiKey=${currencyAPI}`
     fetch(currencyUrl)
