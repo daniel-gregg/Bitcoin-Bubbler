@@ -126,7 +126,7 @@ function formatCurrency(val,currencyString){
 }
 
 function renderChart(values, keys){
-    const labels = keys.map( (key) => dayjs(key).format("ddd MMM YYYY") )
+    const labels = keys.map( (key) => dayjs(key).format("ddd DD MMM YYYY") )
     makeChart(labels, values)
 }
 
