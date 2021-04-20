@@ -85,12 +85,6 @@ body {
     height: 300px;
 }
 
-.ticker-column {
-    background-color: aquamarine;
-    height: 50px;
-    border-radius: 5px;
-    text-align: center;
-}
 
 .parent {
     display: grid;
